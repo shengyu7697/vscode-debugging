@@ -1,0 +1,34 @@
+{
+    "tasks": [
+        {
+            "label": "C/C++: cmake build",
+            "dependsOrder": "sequence",
+            "dependsOn":["cmake generate", "cmake build"]
+        },
+        {
+            "type": "shell",
+            "label": "cmake generate",
+            "command": "cd ${workspaceFolder}/build; /usr/bin/env cmake ..",
+            "args": []
+        },
+        {
+            "type": "shell",
+            "label": "cmake build",
+            "command": "cd ${workspaceFolder}/build; /usr/bin/env cmake --build .",
+            "args": [],
+
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "偵錯工具產生的工作。"
+        }
+    ],
+    "options": {
+        "cwd": "${workspaceRoot}/build"
+    },
+    "version": "2.0.0"
+}
